@@ -1,10 +1,9 @@
 module LuckyTicket
-  @number = '328940'
 
   def self.half
     initial     = 0
-    length      = 8
-    min         = ('0' * length).to_i
+    length      = 4
+    min         = 100
     max         = ('9' * length).to_i
     luck_ticket = 0
 
@@ -15,29 +14,34 @@ module LuckyTicket
       middle = (value.count value)/2
       last   = value.count(value)
 
-      half_left  = value.slice(initial...middle)
-      half_right = value.slice(middle..last)
+      half_left  = get_part(initial, middle, value)
+      half_right = get_part(middle, last, value)
 
-      sum_l       = sum_left(half_left)
-      sum_r       = sum_right(half_right)
+      half_left  = half_left.chars
+      half_right = half_right.chars
 
-      luck_ticket = luck_ticket + 1 if sum_l == sum_r
+      if check_size_of_parts(half_left, half_right)
 
+        sum_l       = sum_part half_left
+        sum_r       = sum_part half_right
+        luck_ticket += 1 if sum_l == sum_r
+      end
 
     }
 
     luck_ticket
   end
 
-  def self.sum_left(half_left)
-    ary_left = half_left.chars
-    ary_left.map!(&:to_i)
-    ary_left.reduce(:+)
+  def self.check_size_of_parts(half_left, half_right)
+    (half_left.size).equal? half_right.size
   end
 
-  def self.sum_right(half_right)
-    ary_right = half_right.chars
-    ary_right.map!(&:to_i)
-    ary_right.reduce(:+)
+  def self.get_part(start, ending, value)
+    value.slice(start...ending)
+  end
+
+  def self.sum_part(number)
+    number.map!(&:to_i)
+    number.reduce(:+)
   end
 end
