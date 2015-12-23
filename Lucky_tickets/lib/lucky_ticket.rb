@@ -3,7 +3,7 @@ module LuckyTicket
   def self.half
     initial     = 0
     length      = 4
-    min         = 100
+    min         = 10
     max         = ('9' * length).to_i
     luck_ticket = 0
 
