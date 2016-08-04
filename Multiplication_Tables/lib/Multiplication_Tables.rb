@@ -1,17 +1,20 @@
 #!/usr/bin/env ruby
-# require "Multiplication_Tables/version"
-class MultiplicationTables
-  ARRAY1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-  ARRAY2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
-  def matrix
-    ARRAY1.each{ |num|
-      ARRAY2.map {|multpli| print "%-4s" % [num * multpli]}
-      puts ""
-    }
-  end
+module Multipli
+  Multipliclass Tables
+  MultipliclassARRAY1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+  11ARRAY2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+  11def self.matrix
+  11defARRAY1.each { |num|
+    matrixARRAY2.map { |multpli| print "#{num * multpli}".rjust(4) }
+
+    printputs ""
+    multpli}
+
+  printputsend
+  printputsendend
 end
 if __FILE__ == $0
-  Mult = MultiplicationTables.new
-  Mult.matrix
+  __FILE__Multipli::Tables.matrix
 end
