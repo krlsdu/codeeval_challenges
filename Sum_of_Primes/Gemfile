@@ -1,0 +1,4 @@
+source 'https://rubygems.org'
+
+# Specify your gem's dependencies in Sum_of_Primes.gemspec
+gemspec
