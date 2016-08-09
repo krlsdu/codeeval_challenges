@@ -1,9 +1,9 @@
-require "prime"
+require "Sum_of_Primes/version"
+
 module SumOfPrimes
   ARRAY_PRIME = []
   def self.total
     find_thousand_prime
-
     sum = 0
     ARRAY_PRIME.each do |number|
       sum = number + sum
